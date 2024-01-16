@@ -1,7 +1,12 @@
 # Custom Paginated DataTable Flutter App
 
 ## Overview
-This Flutter application showcases a paginated data table with search and filtering capabilities, presenting a list of students with various details.
+This Flutter application showcases a custom paginated data table with search and filtering capabilities, presenting a list of students with various details.
+The purpose of this project is to test on the full potential of paginated datatable widget. Some customization had been enabled, such as, 
+- dataRowColor
+- headingRowColor
+- headingRowHeightrow
+- rowsPerPageTitle
 
 ## Features
 Paginated DataTable for efficient data presentation.
@@ -25,9 +30,10 @@ Checkbox selection for multiple student entries.
    
 ## Usage
 1. Launch the app to view the default paginated data table.
-2. Utilize search fields to filter student data.
-3. Adjust the "Students Count" dropdown to change rows per page.
-4. Use checkboxes for multiple student selections.
+2. Scroll or drag the screen to view the whole paginated data table.
+3. Utilize search fields to filter student data.
+4. Adjust the "Students Count" dropdown to change rows per page.
+5. Use checkboxes for multiple student selections.
 
 ## Structure
 - 'main.dart': Entry point containing the app logic.
