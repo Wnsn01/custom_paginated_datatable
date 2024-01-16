@@ -73,7 +73,7 @@ class _MyHomePageState extends State<MyHomePage> {
     Duration difference = endDate.difference(startDate);
     Duration randomDuration = Duration(days: Random().nextInt(difference.inDays));
     DateTime randomDate = startDate.add(randomDuration);
-    return DateFormat('dd-MM-yyyy').format(randomDate);
+    return DateFormat('dd/MM/yyyy').format(randomDate);
   }
 
   @override
@@ -318,8 +318,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         lastDate: DateTime(2100),
                       );
                       if (newRange == null) return;
-                      joinedDateController.text =
-                        '${DateFormat('dd-MM-yyyy').format(newRange.start)} - ${DateFormat('dd-MM-yyyy').format(newRange.end)}';
+                      joinedDateController.text = '${DateFormat('dd/MM/yyyy').format(newRange.start)} - ${DateFormat('dd/MM/yyyy').format(newRange.end)}';
                       setState(() {
                         studentListResult = searchData(
                           studNoController.text,
@@ -360,19 +359,28 @@ class _MyHomePageState extends State<MyHomePage> {
 // Function to filter data based on search criteria
 List<Map<String, dynamic>> searchData(String studNo, String name, String gender, String age, String joinedDate,
     List<Map<String, dynamic>> oriStudentList) {
+  DateTime startDate = DateTime.now();
+  DateTime endDate = DateTime.now();
+  if(joinedDate.isNotEmpty){
+    List<String> splitDate = joinedDate.split(' - ');
+    startDate = DateFormat('dd/MM/yyyy').parse(splitDate[0]);
+    endDate = DateFormat('dd/MM/yyyy').parse(splitDate[1]);
+  }
   final temp = (studNo.isNotEmpty || name.isNotEmpty || gender.isNotEmpty || age.isNotEmpty || joinedDate.isNotEmpty)
       ? oriStudentList.where((element) {
           bool matchStudNo = studNo.isEmpty || element['student_no'].toString().contains(studNo);
           bool matchName = name.isEmpty || element['name'].toString().toLowerCase().contains(name.toLowerCase());
           bool matchGender = gender.isEmpty || element['gender'].toString().toLowerCase() == gender.toLowerCase();
           bool matchAge = age.isEmpty || element['age'].toString().contains(age);
-          List<String> splitDate = joinedDate.split('-');
           bool matchJoinedDate = joinedDate.isEmpty ||
-              DateTime.parse(element['joined_date']).year >= int.parse(splitDate[0]) &&
-              DateTime.parse(element['joined_date']).year <= int.parse(splitDate[1]);
+            (DateFormat('dd/MM/yyyy').parse(element['joined_date']).isAfter(startDate) ||
+            DateFormat('dd/MM/yyyy').parse(element['joined_date']).isAtSameMomentAs(startDate)) &&
+            (DateFormat('dd/MM/yyyy').parse(element['joined_date']).isBefore(endDate) ||
+            DateFormat('dd/MM/yyyy').parse(element['joined_date']).isAtSameMomentAs(endDate));
 
           return matchStudNo && matchName && matchGender && matchAge && matchJoinedDate;
         }).toList()
       : oriStudentList;
   return temp;
 }
+
