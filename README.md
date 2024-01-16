@@ -13,7 +13,7 @@ Checkbox selection for multiple student entries.
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/your-repo.git
+   https://github.com/Wnsn01/custom_paginated_datatable.git
    cd your-repo
    ```
    
