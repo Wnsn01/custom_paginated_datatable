@@ -1,32 +1,47 @@
-Custom Paginated DataTable Flutter App
-Overview
-This Flutter application demonstrates a paginated data table for displaying student information. The app includes search and filtering features to enhance data exploration.
+# Custom Paginated DataTable Flutter App
 
-Code Structure
-main.dart: Entry point for the application, including the app logic.
-paginated_data_table.dart: Custom paginated data table widget.
-data_source.dart: Provides the data source for the DataTable.
-field_text.dart: Utility functions for text fields.
+## Overview
+This Flutter application showcases a paginated data table with search and filtering capabilities, presenting a list of students with various details.
 
-Features
-Paginated DataTable: Efficiently displays student data with pagination.
-Search Functionality: Filters students based on student number, name, gender, age, and joined date.
-Responsive Design: Allows customization of rows per page.
-Checkbox Selection: Enables selection of multiple student entries.
+## Features
+Paginated DataTable for efficient data presentation.
+Search functionality based on student number, name, gender, age, and joined date.
+Responsive design with customizable rows per page.
+Checkbox selection for multiple student entries.
 
-Dependencies
-intl: Used for date formatting.
-faker: Generates dummy data for testing.
-flutter/material.dart: Core Flutter framework.
+## Getting Started
+1. Clone the repository:
 
-Usage
-Launch the app to view the default paginated data table.
-Utilize search fields to filter student data.
-Adjust the "Students Count" dropdown to change rows per page.
-Use checkboxes for multiple student selections.
+   ```bash
+   git clone https://github.com/Wnsn01/custom_paginated_datatable.git
+   cd custom_paginated_datatable
+   ```
+   
+2. Run the App:
 
-Customization
-Feel free to customize the app to suit specific requirements by modifying the Dart files.
+   ```bash
+   flutter run
+   ```
+   
+## Usage
+1. Launch the app to view the default paginated data table.
+2. Utilize search fields to filter student data.
+3. Adjust the "Students Count" dropdown to change rows per page.
+4. Use checkboxes for multiple student selections.
 
-Contribution
-Contributions are welcome!
+## Structure
+- 'main.dart': Entry point containing the app logic.
+- 'paginated_data_table.dart': Custom paginated data table widget.
+- 'data_source.dart': Data source for the DataTable.
+- 'field_text.dart: Utility functions for text fields.
+
+## Dependencies
+- 'intl' for date formatting.
+- 'faker' for generating dummy data.
+- 'flutter/material.dart' for the core Flutter framework.
+
+## Customization
+Feel free to customize the app based on your specific requirements by modifying the provided Dart files.
+
+## Contribution
+Contributions are welcome! Report issues or contribute through pull requests.
