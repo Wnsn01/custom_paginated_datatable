@@ -14,7 +14,7 @@ Checkbox selection for multiple student entries.
 
    ```bash
    https://github.com/Wnsn01/custom_paginated_datatable.git
-   cd your-repo
+   cd custom_paginated_datatable
    ```
    
 2. Run the App:
